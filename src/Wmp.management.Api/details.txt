@@ -1,0 +1,24 @@
+# Set your subscription ID
+$subscription = '01177cb2-d831-4974-8f09-6a8978a891c0'
+$rg='rg-Containeriz';
+
+# Set the subscription context
+az account set --subscription $subscription
+
+# Create the service principal with the correct role and scope
+az ad sp create-for-rbac --name wpmsp2 --role "Application Developer" --scopes /subscriptions/$subscription --sdk-auth --output json
+
+az ad sp create-for-rbac --name wpmsp2 --role Application Developer --scopes /subscriptions/$subscription/resourceGroups/$rg --sdk-auth --output json
+az ad sp create-for-rbac --name wpmsp2 --role Contributor --scopes /subscriptions/$subscription/resourceGroups/$rg --sdk-auth --output json
+
+bash
+# Set your subscription ID
+subscription="01177cb2-d831-4974-8f09-6a8978a891c0"
+
+# Set the subscription context
+az account set --subscription $subscription
+
+//worked under bash
+# Create the service principal with the correct role and scope
+az ad sp create-for-rbac --name wpmsp2 --role "Contributor" --scopes /subscriptions/$subscription --sdk-auth --output json
+note
