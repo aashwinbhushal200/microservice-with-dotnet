@@ -8,7 +8,7 @@ EXPOSE 8080
 EXPOSE 8081
 
 
-# This stage is used to build the service project
+# This stage is used to build the service projects
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
@@ -19,7 +19,7 @@ COPY . .
 WORKDIR "/src/."
 RUN dotnet build "./Wpm.management.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# This stage is used to publish the service project to be copied to the final stage 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./Wpm.management.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
