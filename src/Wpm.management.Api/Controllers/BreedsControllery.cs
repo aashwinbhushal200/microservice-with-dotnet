@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
-using Wmp.management.Api.DataAccess;
+using Wpm.management.Api.DataAccess;
 
-namespace Wmp.management.Api.Controllers;
+namespace Wpm.management.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

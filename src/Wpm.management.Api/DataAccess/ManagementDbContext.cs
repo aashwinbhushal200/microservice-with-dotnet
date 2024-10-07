@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Wmp.management.Api.DataAccess
+namespace Wpm.management.Api.DataAccess
 {
     public class ManagementDbContext(DbContextOptions<ManagementDbContext> options) : DbContext(options)
     {

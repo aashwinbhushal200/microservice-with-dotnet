@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Wmp.management.Api.DataAccess;
+using Wpm.management.Api.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
