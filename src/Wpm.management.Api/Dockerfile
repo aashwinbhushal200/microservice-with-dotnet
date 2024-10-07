@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Wpm.Management.Api/Wpm.management.Api.csproj", "Wpm.Management.Api/"]
-RUN dotnet restore "./Wpm.Management.Api/Wpm.management.Api.csproj"
+COPY ["Wpm.management.Api.csproj", "."]
+RUN dotnet restore "./Wpm.management.Api.csproj"
 COPY . .
-WORKDIR "/src/Wpm.Management.Api"
+WORKDIR "/src/."
 RUN dotnet build "./Wpm.management.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
